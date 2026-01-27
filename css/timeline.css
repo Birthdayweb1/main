@@ -1,0 +1,11 @@
+body { background-color: #2c3e50; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; }
+#progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 6px; background: rgba(255,255,255,0.1); }
+#progress-bar { height: 100%; width: 0%; background-color: #FF9AA2; }
+.timeline-wrapper { width: 90%; max-width: 800px; text-align: center; }
+#media-box { position: relative; width: 100%; height: 60vh; background: #000; border-radius: 15px; overflow: hidden; display:flex; align-items:center; justify-content:center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+#content-slot img, #content-slot video { width: 100%; height: 100%; object-fit: contain; max-height: 60vh; }
+.nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.2); border: none; color: white; font-size: 2rem; padding: 10px; cursor: pointer; border-radius: 50%; z-index: 10; }
+.nav-btn:hover { background: rgba(255,255,255,0.5); }
+.prev { left: 10px; } .next { right: 10px; }
+#note-box { margin-top: 20px; background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; }
+.secondary-btn { background: transparent; border: 2px solid white; font-size: 0.9rem; margin-top: 15px; }

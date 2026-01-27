@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Giriş</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="hero">
+        <h1>İyi ki Doğdun, İyi ki Varsın!</h1>
+        <p>Senin için küçük bir şey hazırladım keyfini çıkarmaya bak, umarım beğenirsin(beğenmek zorundasın). Bu arada sağ üstte şarkı var çalması için ona basma herhangi bir boş yere tıkla başlayacak.</p>
+             <p>Sesi kısabilirsin, şarkı atlayabilirsin veya durdurabilirsin. Özel seçtiğim şarkılar ona göre.</p>
+        <button onclick="location.href='intro.html'" class="btn">Hazırsan başlayalım. 🥳</button>
+    </div>
+    <script>
+    // Kullanıcı sayfada HERHANGİ bir yere tıkladığı an müziği başlat
+    document.addEventListener('click', function() {
+        if(window.parent && window.parent.musicControl) {
+            window.parent.musicControl.resume();
+        }
+    });
+
+    // Sayfa açıldığında da şansımızı deneyelim (Bazı tarayıcılar izin verebilir)
+    window.onload = function() {
+        if(window.parent && window.parent.musicControl) {
+            window.parent.musicControl.resume();
+        }
+    };
+    </script>
+</body>
+</html>

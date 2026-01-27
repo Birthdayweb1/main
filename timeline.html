@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Zaman Tüneli</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/timeline.css">
+</head>
+<body>
+    <div id="progress-container"><div id="progress-bar"></div></div>
+
+    <div class="timeline-wrapper">
+        <div id="media-box">
+            <button class="nav-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+            <div id="content-slot"></div>
+            <button class="nav-btn next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+        <div id="note-box">
+            <p id="note-text">Yükleniyor...</p>
+            <span id="date-badge">Tarih</span>
+        </div>
+        <button onclick="location.href='giris.html'" class="btn secondary-btn" style="margin-top:20px;">İlk sayfa gereksiz buton</button>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/timeline.js"></script>
+</body>
+</html>

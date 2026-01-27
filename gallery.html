@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Galeri</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* --- SAYFA YAPISI (KAYDIRMA SORUNUNU ÇÖZEN KISIM) --- */
+        body { 
+            margin: 0; 
+            padding: 20px; 
+            padding-bottom: 120px; /* Alttaki Müzik Player için boşluk */
+            background-color: #2c3e50; 
+            font-family: 'Fredoka', sans-serif; 
+            
+            /* Dikey kaydırmayı ZORLA aç */
+            overflow-y: auto !important; 
+            height: auto !important;
+            -webkit-overflow-scrolling: touch; /* iPhone'da kaymak gibi aksın */
+        }
+
+        h2 { 
+            text-align: center; 
+            color: #FF9AA2; 
+            font-family: 'Pacifico', cursive; 
+            margin-bottom: 20px; 
+            font-size: 2.5rem; 
+        }
+
+        /* --- GALERİ IZGARASI --- */
+        .gallery-grid {
+            display: grid;
+            /* Bilgisayarda otomatik doldur, Mobilde aşağıda değiştireceğiz */
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 150px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+            background: #000;
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .gallery-item:hover { transform: scale(1.05); z-index: 5; border-color: #FF9AA2; }
+
+        .gallery-item img, .gallery-item video {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+
+        /* Video İkonu */
+        .play-icon {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            color: white; font-size: 2rem; opacity: 0.8;
+            pointer-events: none; text-shadow: 0 0 5px black;
+        }
+
+        /* --- LIGHTBOX (AÇILAN SİYAH EKRAN) --- */
+        #lightbox {
+            display: none; /* Gizli Başla */
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 999999;
+            align-items: center; justify-content: center;
+            flex-direction: column;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Medya Kutusu */
+        #lightbox-media-box {
+            width: 100%;
+            height: 80%;
+            display: flex; justify-content: center; align-items: center;
+        }
+        
+        #lightbox-media-box img, #lightbox-media-box video {
+            max-width: 95%; max-height: 95%;
+            border: 2px solid white; 
+            box-shadow: 0 0 30px rgba(255,255,255,0.1);
+            border-radius: 5px;
+            object-fit: contain;
+        }
+
+        /* Ok Tuşları */
+        .lb-nav {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(255,255,255,0.15); color: white;
+            border: none; padding: 15px 20px; font-size: 2rem; cursor: pointer;
+            user-select: none; border-radius: 10px; transition: 0.3s;
+        }
+        .lb-nav:hover { background: rgba(255,255,255,0.4); transform: translateY(-50%) scale(1.1); }
+        #lb-prev { left: 20px; }
+        #lb-next { right: 20px; }
+
+        /* Kapat (X) Tuşu */
+        #lb-close {
+            position: absolute; top: 20px; right: 30px;
+            color: white; font-size: 3rem; cursor: pointer;
+            font-weight: bold; user-select: none; transition: 0.3s;
+            z-index: 10000;
+        }
+        #lb-close:hover { color: #FF6B6B; transform: rotate(90deg); }
+
+        /* ========================================= */
+        /* 📱 MOBİL İÇİN ÖZEL KURALLAR (RESPONSIVE) */
+        /* ========================================= */
+        @media screen and (max-width: 768px) {
+            
+            /* Mobilde resimler yan yana 2 tane olsun */
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 10px;
+            }
+
+            /* Resimler kare olsun */
+            .gallery-item {
+                height: 120px;
+            }
+
+            /* Lightbox Kapatma Tuşunu Büyüt (Parmak için) */
+            #lb-close {
+                top: 15px; right: 15px;
+                background: rgba(255,255,255,0.2);
+                width: 50px; height: 50px;
+                border-radius: 50%;
+                display: flex; align-items: center; justify-content: center;
+                font-size: 2rem;
+            }
+
+            /* Ok tuşlarını büyüt */
+            .lb-nav {
+                padding: 20px;
+                background: rgba(0,0,0,0.5);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <h2>Anılarımız</h2>
+
+    <div class="gallery-grid" id="gallery-container"></div>
+
+    <button onclick="goHome()" class="btn" style="position:fixed; top:20px; left:20px; z-index:100; font-size:1.5rem; padding:10px;">🏠</button>
+
+    <div id="lightbox">
+        <div id="lb-close" onclick="closeLightbox()">&times;</div>
+        <button id="lb-prev" class="lb-nav" onclick="changeLbSlide(-1)">&#10094;</button>
+        
+        <div id="lightbox-media-box">
+            </div>
+
+        <button id="lb-next" class="lb-nav" onclick="changeLbSlide(1)">&#10095;</button>
+    </div>
+
+    <script src="js/data.js"></script>
+    
+    <script>
+        const container = document.getElementById('gallery-container');
+        const lightbox = document.getElementById('lightbox');
+        const mediaBox = document.getElementById('lightbox-media-box');
+        let currentIndex = 0;
+
+        // --- GALERİYİ OLUŞTUR ---
+        if (typeof fullGallery !== 'undefined') {
+            fullGallery.forEach((itemSrc, index) => {
+                const div = document.createElement('div');
+                div.className = 'gallery-item';
+                
+                // TIKLAYINCA LIGHTBOX AÇ
+                div.onclick = () => openLightbox(index); 
+
+                const isVideo = itemSrc.toLowerCase().endsWith('.mp4');
+                if (isVideo) {
+                    div.innerHTML = `<video src="${itemSrc}"></video><div class="play-icon">▶</div>`;
+                } else {
+                    div.innerHTML = `<img src="${itemSrc}" loading="lazy">`;
+                }
+                container.appendChild(div);
+            });
+        }
+
+        // --- FONKSİYONLAR ---
+        
+        function goHome() {
+            if(window.parent && window.parent.location) {
+                window.parent.location.href = 'index.html'; 
+            } else {
+                location.href = 'giris.html';
+            }
+        }
+
+        function openLightbox(index) {
+            currentIndex = index;
+            updateLightbox();
+            lightbox.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            mediaBox.innerHTML = ''; 
+        }
+
+        function changeLbSlide(direction) {
+            currentIndex += direction;
+            if (currentIndex >= fullGallery.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = fullGallery.length - 1;
+            updateLightbox();
+        }
+
+        function updateLightbox() {
+            const src = fullGallery[currentIndex];
+            const isVideo = src.toLowerCase().endsWith('.mp4');
+            
+            mediaBox.innerHTML = ''; 
+
+            if (isVideo) {
+                mediaBox.innerHTML = `<video src="${src}" controls autoplay style="width:100%; height:100%;"></video>`;
+            } else {
+                mediaBox.innerHTML = `<img src="${src}" style="width:100%; height:100%; object-fit:contain;">`;
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.style.display === 'flex') {
+                if (e.key === 'ArrowLeft') changeLbSlide(-1);
+                if (e.key === 'ArrowRight') changeLbSlide(1);
+                if (e.key === 'Escape') closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>

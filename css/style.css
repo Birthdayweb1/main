@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&family=Pacifico&display=swap');
+
+:root {
+    --primary-color: #FF9AA2;
+    --secondary-color: #FFDAC1;
+    --bg-color: #FFF9F9;
+    --text-color: #4A4A4A;
+}
+
+/* --- GENEL AYARLAR --- */
+* {
+    box-sizing: border-box; /* Padding ekleyince kutuların şişmesini engeller */
+}
+
+body {
+    margin: 0; padding: 0; 
+    font-family: 'Fredoka', sans-serif;
+    background-color: var(--bg-color); 
+    color: var(--text-color);
+    overflow-x: hidden; /* Yanlara taşmayı kesinlikle engelle */
+}
+
+/* --- GİRİŞ SAYFASI (HERO) --- */
+.hero {
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+    background: radial-gradient(circle, var(--secondary-color) 0%, var(--bg-color) 70%);
+    padding: 20px;
+}
+
+h1 { 
+    font-family: 'Pacifico', cursive; 
+    font-size: 4rem; 
+    color: var(--primary-color); 
+    margin: 0; 
+    animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float { 
+    0%,100%{transform:translateY(0);} 
+    50%{transform:translateY(-10px);} 
+}
+
+p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+/* --- BUTONLAR --- */
+.btn {
+    padding: 15px 40px; 
+    font-size: 1.2rem; 
+    background-color: var(--primary-color); 
+    color: white;
+    border: none; 
+    border-radius: 50px; 
+    cursor: pointer; 
+    transition: all 0.3s; 
+    margin-top: 20px;
+    font-family: 'Fredoka', sans-serif; 
+    box-shadow: 0 5px 15px rgba(255, 154, 162, 0.4);
+    /* Mobilde dokunmayı kolaylaştırmak için */
+    touch-action: manipulation;
+}
+.btn:hover { transform: scale(1.05); background-color: #ff808b; }
+
+/* ========================================= */
+/* 📱 MOBİL İÇİN KESİN ÇÖZÜM (GÜNCELLENDİ) */
+/* ========================================= */
+
+@media screen and (max-width: 768px) {
+
+    /* --- 1. MÜZİK PLAYER (KOMPAKT & KİBAR) --- */
+    #music-player {
+        position: fixed !important;
+        
+        /* Tam alta yapıştır */
+        bottom: 15px !important;
+        top: auto !important;
+        
+        /* Yanlardan 10px boşluk bırakarak ortala */
+        left: 10px !important;
+        right: 10px !important;
+        width: auto !important; /* Genişliği içeriğe göre değil ekrana göre ayarla */
+        transform: none !important; /* Eski ortalamayı iptal et */
+
+        /* Boyutları Küçült */
+        padding: 8px 15px !important; 
+        height: 50px !important; /* Yüksekliği sabitle */
+        
+        /* Görünüm */
+        background: rgba(255, 255, 255, 0.95) !important;
+        border-radius: 25px !important; /* Daha yuvarlak */
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
+        
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        z-index: 999999 !important;
+    }
+
+    /* Mobilde Ses Çubuğunu VE Hoparlör İkonunu YOK ET */
+    #volume-slider, 
+    #music-player div:has(#volume-slider), /* Slider'ın kapsayıcısı */
+    #music-player span:contains("🔊") {    /* Hoparlör ikonu (CSS Selector yetmeyebilir, alttaki garanti) */
+       display: none !important;
+    }
+    
+    /* Alternatif gizleme (HTML yapına göre) */
+    #music-player input[type="range"], 
+    #music-player div[style*="border-left"] {
+        display: none !important;
+    }
+
+    /* Butonları Küçült */
+    #music-player button {
+        font-size: 1rem !important; /* İkonları ufalttık */
+        margin: 0 5px !important;
+    }
+
+    /* Şarkı İsmi */
+    #song-title {
+        font-size: 0.75rem !important; /* Yazıyı ufalttık */
+        max-width: 100px !important;   /* Uzun isimleri kes */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+
+    /* --- 2. INTRO VİDEOSU (TAŞMAYI ENGELLE) --- */
+    /* İframe içindeki body taşmasın */
+    body {
+        margin: 0; padding: 0;
+        width: 100%; height: 100%;
+        overflow: hidden !important; 
+    }
+
+    #video-container video {
+        position: fixed !important;
+        top: 0; left: 0;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important; /* Resmi bozmadan ekranı doldur */
+        z-index: -1;
+    }
+    
+    /* Intro'daki Geç butonu player'ın altında kalmasın */
+    button[onclick*="timeline"] {
+        bottom: 80px !important; /* Player'dan daha yukarıda */
+        right: 20px !important;
+        z-index: 1000 !important;
+    }
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Intro</title>
+    
+    <style>
+        /* 1. SAYFAYI SIFIRLA VE KAYDIRMAYI KAPAT */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden !important; /* Kaydırma çubuğunu öldür */
+            background-color: black;
+        }
+
+        /* 2. VİDEO KUTUSU (Ekrana Çivile) */
+        #video-container {
+            position: fixed; /* Sayfaya yapıştır */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* En altta dursun */
+        }
+
+        /* 3. VİDEO AYARLARI */
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Resmi bozmadan ekranı doldur */
+            display: block; /* Alt kısımdaki boşluğu siler */
+        }
+
+        /* 4. "GEÇ" BUTONU */
+        #skip-btn {
+            position: fixed;
+            bottom: 90px; /* Müzik player'ın üstünde kalsın */
+            right: 20px;
+            z-index: 999; /* Videonun üstünde olsun */
+            
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-family: sans-serif;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="video-container"></div>
+    
+    <button id="skip-btn" onclick="goTimeline()">GEÇ >></button>
+
+    <script src="js/data.js"></script>
+    <script>
+        let currentIntroIndex = 0;
+        const container = document.getElementById('video-container');
+
+        // MÜZİK KONTROLÜ (Intro açılınca müziği sustur)
+        window.onload = function() {
+            if(window.parent && window.parent.musicControl) {
+                window.parent.musicControl.pause();
+            }
+            playIntro();
+        };
+
+        function playIntro() {
+            if (currentIntroIndex >= introVideos.length) {
+                goTimeline();
+                return;
+            }
+
+            container.innerHTML = '';
+            const vid = document.createElement('video');
+            vid.src = introVideos[currentIntroIndex].src;
+            
+            // MOBİL İÇİN KRİTİK AYARLAR
+            vid.autoplay = true;
+            vid.muted = false; // Sesli olsun (Tarayıcı izin verirse)
+            
+            // iPhone'da tam ekran olup patlamaması için bu ŞART:
+            vid.setAttribute('playsinline', ''); 
+            vid.setAttribute('webkit-playsinline', ''); 
+            
+            vid.onended = function() {
+                currentIntroIndex++;
+                playIntro();
+            };
+            container.appendChild(vid);
+        }
+
+        function goTimeline() {
+            // Müziği geri aç ve sayfayı değiştir
+            if(window.parent && window.parent.musicControl) {
+                window.parent.musicControl.resume();
+            }
+            location.href = 'timeline.html';
+        }
+    </script>
+</body>
+</html>
