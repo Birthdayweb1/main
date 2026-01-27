@@ -9,7 +9,7 @@
 
 /* --- GENEL AYARLAR --- */
 * {
-    box-sizing: border-box; /* Padding ekleyince kutuların şişmesini engeller */
+    box-sizing: border-box; 
 }
 
 body {
@@ -17,7 +17,7 @@ body {
     font-family: 'Fredoka', sans-serif;
     background-color: var(--bg-color); 
     color: var(--text-color);
-    overflow-x: hidden; /* Yanlara taşmayı kesinlikle engelle */
+    overflow-x: hidden; /* Yanlara taşmayı engelle */
 }
 
 /* --- GİRİŞ SAYFASI (HERO) --- */
@@ -65,13 +65,48 @@ p {
     margin-top: 20px;
     font-family: 'Fredoka', sans-serif; 
     box-shadow: 0 5px 15px rgba(255, 154, 162, 0.4);
-    /* Mobilde dokunmayı kolaylaştırmak için */
     touch-action: manipulation;
 }
 .btn:hover { transform: scale(1.05); background-color: #ff808b; }
 
 /* ========================================= */
-/* 📱 MOBİL İÇİN KESİN ÇÖZÜM (GÜNCELLENDİ) */
+/* INTRO VİDEO AYARLARI (MASAÜSTÜ VE GENEL) */
+/* ========================================= */
+
+#video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10; 
+}
+
+#video-container video {
+    width: 100%;
+    height: 100%;
+    max-width: 100vw;
+    max-height: 100vh;
+    object-fit: contain !important; /* Videoyu ekrana tam sığdır */
+    outline: none;
+    pointer-events: auto !important; /* !!! BURASI EKLENDİ: Videoya tıklamayı açar !!! */
+}
+
+/* Masaüstü ve genel Geç butonu ayarı */
+#skip-btn {
+    position: fixed;
+    bottom: 40px; 
+    right: 20px;
+    z-index: 1000;
+}
+
+
+/* ========================================= */
+/* 📱 MOBİL İÇİN KESİN ÇÖZÜM */
 /* ========================================= */
 
 @media screen and (max-width: 768px) {
@@ -79,24 +114,18 @@ p {
     /* --- 1. MÜZİK PLAYER (KOMPAKT & KİBAR) --- */
     #music-player {
         position: fixed !important;
-        
-        /* Tam alta yapıştır */
         bottom: 15px !important;
         top: auto !important;
-        
-        /* Yanlardan 10px boşluk bırakarak ortala */
         left: 10px !important;
         right: 10px !important;
-        width: auto !important; /* Genişliği içeriğe göre değil ekrana göre ayarla */
-        transform: none !important; /* Eski ortalamayı iptal et */
+        width: auto !important; 
+        transform: none !important; 
 
-        /* Boyutları Küçült */
         padding: 8px 15px !important; 
-        height: 50px !important; /* Yüksekliği sabitle */
+        height: 50px !important; 
         
-        /* Görünüm */
         background: rgba(255, 255, 255, 0.95) !important;
-        border-radius: 25px !important; /* Daha yuvarlak */
+        border-radius: 25px !important; 
         box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
         
         display: flex !important;
@@ -105,56 +134,46 @@ p {
         z-index: 999999 !important;
     }
 
-    /* Mobilde Ses Çubuğunu VE Hoparlör İkonunu YOK ET */
+    /* Mobilde Gereksizleri Gizle */
     #volume-slider, 
-    #music-player div:has(#volume-slider), /* Slider'ın kapsayıcısı */
-    #music-player span:contains("🔊") {    /* Hoparlör ikonu (CSS Selector yetmeyebilir, alttaki garanti) */
+    #music-player div:has(#volume-slider), 
+    #music-player span:contains("🔊") {
        display: none !important;
     }
     
-    /* Alternatif gizleme (HTML yapına göre) */
-    #music-player input[type="range"], 
-    #music-player div[style*="border-left"] {
+    #music-player input[type="range"] {
         display: none !important;
     }
 
-    /* Butonları Küçült */
     #music-player button {
-        font-size: 1rem !important; /* İkonları ufalttık */
+        font-size: 1rem !important; 
         margin: 0 5px !important;
     }
 
-    /* Şarkı İsmi */
     #song-title {
-        font-size: 0.75rem !important; /* Yazıyı ufalttık */
-        max-width: 100px !important;   /* Uzun isimleri kes */
+        font-size: 0.75rem !important;
+        max-width: 100px !important; 
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
 
-
-    /* --- 2. INTRO VİDEOSU (TAŞMAYI ENGELLE) --- */
-    /* İframe içindeki body taşmasın */
-    body {
-        margin: 0; padding: 0;
-        width: 100%; height: 100%;
-        overflow: hidden !important; 
-    }
-
+    /* --- 2. INTRO VİDEOSU MOBİL AYARI --- */
     #video-container video {
-        position: fixed !important;
-        top: 0; left: 0;
         width: 100% !important;
-        height: 100% !important;
-        object-fit: cover !important; /* Resmi bozmadan ekranı doldur */
-        z-index: -1;
+        height: 100% !important; 
+        object-fit: contain !important; 
+        pointer-events: auto !important; /* Mobilde dokunmayı açar */
     }
     
-    /* Intro'daki Geç butonu player'ın altında kalmasın */
-    button[onclick*="timeline"] {
-        bottom: 80px !important; /* Player'dan daha yukarıda */
+    /* --- 3. GEÇ BUTONU MOBİL AYARI (DEĞİŞEN KISIM) --- */
+    /* Mobilde butonu ALTTAN alıp YUKARI (top) taşıyoruz */
+    #skip-btn {
+        bottom: auto !important; /* Alt ayarını iptal et */
+        top: 30px !important;    /* Sayfanın tepesine yapıştır */
         right: 20px !important;
-        z-index: 1000 !important;
+        z-index: 9999 !important; /* Her şeyin üstünde olsun */
+        background: rgba(0, 0, 0, 0.6) !important; 
+        border: 1px solid rgba(255,255,255,0.4) !important;
     }
 }

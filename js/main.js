@@ -20,51 +20,78 @@ document.addEventListener('DOMContentLoaded', () => {
     function loadSong(index) {
         if (index < 0) index = playlist.length - 1;
         if (index >= playlist.length) index = 0;
+        
         currentSongIndex = index;
         audio.src = playlist[currentSongIndex].src;
+        
         if (titleEl) titleEl.innerText = playlist[currentSongIndex].title;
+    }
+
+    // Mobilde hatasız oynatma fonksiyonu
+    function safePlay() {
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                // Otomatik oynatma başarılı
+                if(playBtn) playBtn.innerText = "⏸️"; // Duraklat butonu
+            }).catch(error => {
+                // Otomatik oynatma engellendi (kullanıcı etkileşimi bekleniyor)
+                console.log("Müzik başlatılamadı (Mobil kısıtlaması):", error);
+                if(playBtn) playBtn.innerText = "⏯️"; // Oynat butonu
+            });
+        }
     }
 
     function togglePlay() {
         if (audio.paused) {
-            audio.play().then(() => { if(playBtn) playBtn.innerText = "⏸️"; })
-                 .catch(e => console.error(e));
+            safePlay();
         } else {
             audio.pause();
             if(playBtn) playBtn.innerText = "⏯️";
         }
     }
 
-    function nextSong() { loadSong(currentSongIndex + 1); audio.play(); if(playBtn) playBtn.innerText = "⏸️"; }
-    function prevSong() { loadSong(currentSongIndex - 1); audio.play(); if(playBtn) playBtn.innerText = "⏸️"; }
+    function nextSong() { 
+        loadSong(currentSongIndex + 1); 
+        safePlay(); 
+    }
+
+    function prevSong() { 
+        loadSong(currentSongIndex - 1); 
+        safePlay(); 
+    }
 
     // --- EVENT LISTENERS ---
     if (volumeSlider) {
+        // 'input' hem masaüstü hem mobilde daha akıcı çalışır
         volumeSlider.addEventListener('input', (e) => { 
             userVolume = e.target.value;
             audio.volume = userVolume; 
         });
     }
+
     if (playBtn) playBtn.addEventListener('click', togglePlay);
     if (nextBtn) nextBtn.addEventListener('click', nextSong);
     if (prevBtn) prevBtn.addEventListener('click', prevSong);
+    
+    // Şarkı bitince sonrakine geç
     audio.addEventListener('ended', nextSong);
 
+    // Sayfa ilk açıldığında şarkıyı yükle ama hemen çalma (mobilde izinsiz çalmaz)
     loadSong(currentSongIndex);
 
     // ==========================================
-    // YENİ EKLENEN KISIM: DIŞARIYA AÇILAN KAPI
+    // DIŞARIYA AÇILAN KAPI (Intro sayfası kullanır)
     // ==========================================
     window.musicControl = {
         pause: function() {
             audio.pause();
-            if(playBtn) playBtn.innerText = "⏯️"; // Oynat ikonu
+            if(playBtn) playBtn.innerText = "⏯️"; // Oynat ikonu göster
         },
         resume: function() {
             // Sadece kullanıcı sesi tamamen kapatmadıysa devam et
             if(userVolume > 0) {
-                audio.play();
-                if(playBtn) playBtn.innerText = "⏸️"; // Durdur ikonu
+                safePlay();
             }
         }
     };
