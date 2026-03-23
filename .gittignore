@@ -1,0 +1,12 @@
+# İşletim sistemi dosyaları
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python / Gereksizler
+venv/
+__pycache__/
+*.pyc
+
+# Docker
+.dockerignore
