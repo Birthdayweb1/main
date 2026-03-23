@@ -113,12 +113,13 @@ const fullGallery = [
     "assets/videos/3.mp4",
     "assets/videos/4.mp4",
     "assets/videos/5.mp4",
-    "assets/videos/6.mp4"
+    "assets/videos/6.mp4",
+    "assets/videos/7.mp4"
 ];
 
 // 4. SÜRPRİZ MESAJI
 const surpriseContent = {
-    message: "İyi ki varsın iyi ki doğmuşsun. Buraya yazabileceğim çok kelime var ama hiçbiri gerçek sevgimi ifade edemez. Konuşarak, yazarak veya herhangi bir dille anlatabileceğimi de sanmıyorum. Kelime seçemiyorum, az bile kalır diyorum bu kelime. Buraya bile yazıp yazıp sildim aq. Yeter wpden yazmışımdır zaten. Seni seviyorum mutlu yıllar, nice mutlu huzurlu senelere... Şimdi galeriyi gezebilirsin.",
+    message: "İyi ki varsın iyi ki doğmuşsun. Buraya yazabileceğim çok kelime var ama hiçbiri gerçek sevgimi ifade edemez. Konuşarak, yazarak veya herhangi bir dille anlatabileceğimi de sanmıyorum. Kelime seçemiyorum, az bile kalır diyorum bu kelime. Buraya bile yazıp yazıp sildim aq. Yeter wpden yazmışımdır zaten. Seni seviyorum mutlu yıllar, nice mutlu huzurlu senelere... Şimdi ikimizin de olduğu fotoğrafları gezebilirsin.",
     mediaType: "image",
     mediaSrc: "assets/images/surprise.jpg"
 };
@@ -127,7 +128,6 @@ const surpriseContent = {
 const playlist = [
     { title: "İyi ki Doğdun Zeynep", src: "assets/audio/iyikidogdun_zeynep.mp3" },
     { title: "Can Bonomo - Güneş", src: "assets/audio/can_bonomo_gunes.mp3" },
-    { title: "Nice To Meet You", src: "assets/audio/nicetomeetyou.mp3" },
     { title: "Eşarbını Yan Bağlama", src: "assets/audio/esarbini_yan_baglama.mp3" },
     { title: "Tutu Maşallah", src: "assets/audio/tutu_masallah.mp3" },
     { title: "Ali Dayı", src: "assets/audio/ali_dayi.mp3" },
