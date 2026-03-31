@@ -192,4 +192,15 @@ p {
         margin-bottom: 20px !important;
         }
     }
+    /* --- MOBİLDE SAYFANIN ÜST KISMININ KESİLMESİNİ ÖNLEYEN KOD --- */
+@media (max-width: 768px) {
+    body, html, .hero, .container {
+        height: auto !important;
+        min-height: 100vh !important;
+        justify-content: flex-start !important; /* Öğeleri ekranın üstünden başlayarak sıralar */
+        padding-top: 40px !important; /* Üstten biraz nefes boşluğu bırakır */
+        padding-bottom: 40px !important;
+        box-sizing: border-box !important;
+        }
+    }
 }

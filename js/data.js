@@ -119,7 +119,7 @@ const fullGallery = [
 
 // 4. SÜRPRİZ MESAJI
 const surpriseContent = {
-    message: "İyi ki varsın iyi ki doğmuşsun. Buraya yazabileceğim çok kelime var ama hiçbiri gerçek sevgimi ifade edemez. Konuşarak, yazarak veya herhangi bir dille anlatabileceğimi de sanmıyorum. Kelime seçemiyorum, az bile kalır diyorum bu kelime. Buraya bile yazıp yazıp sildim aq. Yeter wpden yazmışımdır zaten. Seni seviyorum mutlu yıllar, nice mutlu huzurlu senelere... Şimdi ikimizin de olduğu fotoğrafları gezebilirsin.",
+    message: "İyi ki varsın iyi ki doğmuşsun. Nice mutlu beraber senelere. Bu projem internet yok olana kadar açık kalacak. Yani dijital ayak izini ben oluşturdum. Şimdi ikimizin içinde(bazılarında konuşmadıklarımız falan da var ama yapacak bişey yok) olduğu fotoğrafları görebilir, gezebilirsin (Ender Eniştem ortaya çıkmadan önce yaptım).",
     mediaType: "image",
     mediaSrc: "assets/images/surprise.jpg"
 };
