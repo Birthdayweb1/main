@@ -22,8 +22,8 @@
         <div id="media-slot"></div>
         <p id="final-message">...</p>
         <div style="display:flex; gap:10px; justify-content:center; margin-top:20px;">
-            <button onclick="location.href='gallery.html'" class="btn" style="background:var(--secondary-color); color:#333;">📸 Galerimiz</button>
-            <button onclick="location.href='giris.html'" class="btn">Başa Dön ↺ tekrar tekrar izlemek istiyorsan buna basabilirsin😁</button>
+            <button onclick="location.href='gallery.html'" class="btn" style="background:var(--secondary-color); color:#333;">📸 Birlikte içinde bulunduğumuz fotoğraflar</button>
+            <button onclick="location.href='giris.html'" class="btn">Başa Dön ↺ tekrar tekrar izlemek istiyorsan buna basabilirsin(Ana sayfa).</button>
         </div>
     </div>
 
@@ -51,6 +51,27 @@
                 setTimeout(()=>{conf.style.top='110vh'; conf.style.opacity='0';}, 100);
             }
         }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script>
+    // Rastgele konum üretici
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    // Her 1.5 saniyede bir ekranın rastgele bir yerinde havai fişek patlat
+    setInterval(function() {
+      confetti({
+        angle: randomInRange(55, 125),
+        spread: randomInRange(50, 70),
+        particleCount: randomInRange(50, 100),
+        startVelocity: 30,
+        origin: { 
+            x: randomInRange(0.1, 0.9), // Ekranın geneline yayılmasını sağlar
+            y: Math.random() - 0.2      // Patlama yüksekliğini ayarlar
+        }
+      });
+    }, 1500); // Hız ayarı (1500 milisaniye = 1.5 saniye)
     </script>
 </body>
 </html>
