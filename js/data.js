@@ -3,7 +3,7 @@
 // 1. GİRİŞ VİDEOLARI (Parti başlayınca ilk bunlar oynar)
 const introVideos = [
     { src: "assets/videos/5.mp4" },
-    { src: "assets/videos/6.mp4" },
+    { src: "assets/videos/2.mp4" },
     { src: "assets/videos/EREN.mp4"}
 ];
 
