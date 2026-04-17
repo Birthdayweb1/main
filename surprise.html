@@ -36,8 +36,12 @@
             
             document.getElementById('final-message').innerText = surpriseContent.message;
             const slot = document.getElementById('media-slot');
-            if(surpriseContent.mediaType === 'image') slot.innerHTML = `<img id="surprise.jpeg" src="${surpriseContent.mediaSrc}">`;
-            else slot.innerHTML = `<video id="surprise-media" src="${surpriseContent.mediaSrc}" controls autoplay></video>`;
+            // 4. SÜRPRİZ MESAJI
+            const surpriseContent = {
+                message: "İyi ki varsın iyi ki doğmuşsun. Nice mutlu beraber senelere. Bu projem internet yok olana kadar açık kalacak. Yani dijital ayak izin hep olacak. Şimdi galeri sekmesine gidip fotoları veya videoları inceleyebilirsin. Her yılın bir önceki yılından daha mutlu olması dileğiyle...",
+                mediaSrc: "assets/images/surprise.jpeg",
+                mediaType: "image"
+};
             
             launchConfetti();
         }
