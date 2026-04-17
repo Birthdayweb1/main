@@ -96,7 +96,7 @@ const fullGallery = [
     "assets/images/79.jpeg",
     "assets/images/81.jpeg",
     "assets/images/82.jpeg",
-    "assets/images/surprise.jpeg",
+    "assets/images/surprise.jpg",
     "assets/images/SurprizZeynep.jpeg",
     "assets/videos/2.mp4",
     "assets/videos/5.mp4",
