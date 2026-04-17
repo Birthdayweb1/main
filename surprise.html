@@ -36,7 +36,7 @@
             
             document.getElementById('final-message').innerText = surpriseContent.message;
             const slot = document.getElementById('media-slot');
-            if(surpriseContent.mediaSrc === 'image') slot.innerHTML = `<img id="surprise-media" src="${surpriseContent.mediaSrc}">`;
+            if(surpriseContent.mediaType === 'image') slot.innerHTML = `<img id="surprise-media" src="${surpriseContent.mediaSrc}">`;
             else slot.innerHTML = `<video id="surprise-media" src="${surpriseContent.mediaSrc}" controls autoplay></video>`;
             
             launchConfetti();
