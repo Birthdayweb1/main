@@ -96,7 +96,7 @@ const fullGallery = [
     "assets/images/79.jpeg",
     "assets/images/81.jpeg",
     "assets/images/82.jpeg",
-    "assets/images/surprise.jpg",
+    "assets/images/surprise.jpeg",
     "assets/images/SurprizZeynep.jpeg",
     "assets/videos/2.mp4",
     "assets/videos/5.mp4",
@@ -107,7 +107,7 @@ const fullGallery = [
 // 4. SÜRPRİZ MESAJI
 const surpriseContent = {
     message: "İyi ki varsın iyi ki doğmuşsun. Nice mutlu beraber senelere. Bu projem internet yok olana kadar açık kalacak. Yani dijital ayak izin hep olacak. Şimdi galeri sekmesine gidip fotoları veya videoları inceleyebilirsin. Her yılın bir önceki yılından daha mutlu olması dileğiyle...",
-    mediaSrc: "assets/images/surprise.jpg"
+    mediaSrc: "assets/images/surprise.jpeg"
 };
 
 // 5. ARKA PLAN MÜZİĞİ
