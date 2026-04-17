@@ -2,7 +2,7 @@
 
 // 1. GİRİŞ VİDEOLARI (Parti başlayınca ilk bunlar oynar)
 const introVideos = [
-    { src: "assets/videos/5.mp4" },
+    { src: "assets/videos/Seyma.mp4", },
     { src: "assets/videos/2.mp4" },
     { src: "assets/videos/EREN.mp4"}
 ];
@@ -101,13 +101,15 @@ const fullGallery = [
     "assets/videos/2.mp4",
     "assets/videos/5.mp4",
     "assets/videos/7.mp4",
+    "assets/videos/Seyma.mp4",
     "assets/videos/EREN.mp4"
 ];
 
 // 4. SÜRPRİZ MESAJI
 const surpriseContent = {
     message: "İyi ki varsın iyi ki doğmuşsun. Nice mutlu beraber senelere. Bu projem internet yok olana kadar açık kalacak. Yani dijital ayak izin hep olacak. Şimdi galeri sekmesine gidip fotoları veya videoları inceleyebilirsin. Her yılın bir önceki yılından daha mutlu olması dileğiyle...",
-    mediaSrc: "assets/images/surprise.jpeg"
+    mediaSrc: "assets/images/surprise.jpeg",
+    mediaType: "image"
 };
 
 // 5. ARKA PLAN MÜZİĞİ
