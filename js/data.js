@@ -7,7 +7,8 @@ const introVideos = [
     { src: "assets/videos/EREN.mp4"},
     { src: "assets/videos/SEMIH.mp4"},
     { src: "assets/videos/EZGI.mp4"},
-    { src: "assets/videos/EFE.mp4"}
+    { src: "assets/videos/EFE.mp4"},
+    { src: "assets/videos/BATUK.mp4"}
 ];
 
 // 2. ZAMAN TÜNELİ (Sadece seçilmiş özel anlar - Highlights)
@@ -16,14 +17,13 @@ const timelineMemories = [
         type: "image",
         src: "assets/images/78.jpeg", 
         date: "02.05.2022",
-        note: "Bu fotoğraf telefonumda beraber bulunduğumuz ilk fotoğraf",
+        note: "        Bu fotoğraf telefonumda beraber bulunduğumuz ilk fotoğraf",
         duration: 10000 
     },
     {
         type: "image",
         src: "assets/images/SurprizZeynep.jpeg",
-        date: "ALLAH BİLİR",
-        note: "LDGFJKGDFJJGKDFGFDL",
+        note: "LDGFJKGDFJJGKDFGFDLLKDGFJGFDJKGFDLGFSFSJKDFJDLSDSAJKDLSKJDASKDJSJAKL",
         duration: 10000 
     }
 ];
@@ -158,7 +158,8 @@ const fullGallery = [
     "assets/videos/EREN.mp4",
     "assets/videos/EFE.mp4",
     "assets/videos/EZGI.mp4",
-    "assets/videos/SEMIH.mp4"
+    "assets/videos/SEMIH.mp4",
+    "assets/videos/BATUK.mp4"
 ];
 
 // 4. SÜRPRİZ MESAJI
