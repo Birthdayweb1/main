@@ -3,7 +3,6 @@
 // 1. GİRİŞ VİDEOLARI (Parti başlayınca ilk bunlar oynar)
 const introVideos = [
     { src: "assets/videos/Seyma.mp4", },
-    { src: "assets/videos/2.mp4" },
     { src: "assets/videos/EREN.mp4"},
     { src: "assets/videos/SEMIH.mp4"},
     { src: "assets/videos/EZGI.mp4"},
@@ -17,13 +16,14 @@ const timelineMemories = [
         type: "image",
         src: "assets/images/78.jpeg", 
         date: "02.05.2022",
-        note: "        Bu fotoğraf telefonumda beraber bulunduğumuz ilk fotoğraf",
+        note: "Bu fotoğraf telefonumda bulduğum en eski beraber bulunduğumuz fotoğrafmış",
         duration: 10000 
     },
     {
         type: "image",
         src: "assets/images/SurprizZeynep.jpeg",
-        note: "LDGFJKGDFJJGKDFGFDLLKDGFJGFDJKGFDLGFSFSJKDFJDLSDSAJKDLSKJDASKDJSJAKL",
+        date: "02.05.2022",
+        note: "LDGFJKGDFJJGKDFGFDLLKDGFJGFDJKGFDLGFSFSJKDFJDLSDSAJKDLSKJDASKDJS",
         duration: 10000 
     }
 ];
@@ -164,7 +164,7 @@ const fullGallery = [
 
 // 4. SÜRPRİZ MESAJI
 const surpriseContent = {
-    message: "İyi ki varsın iyi ki doğmuşsun. Nice mutlu beraber senelere. Bu internet yok olana kadar açık kalacak. Yani dijital ayak izin hep olacak. Şimdi fotoğraflar sekmesine gidip fotoları veya videoları inceleyebilirsin. Her yılın bir önceki yılından daha mutlu olması dileğiyle...",
+    message: "İyi ki varsın iyi ki doğmuşsun. Nice mutlu beraber senelere. Bu internet yok olana kadar açık kalacak. Yani dijital ayak izin hep olacak. Şimdi 'fotoğraflar ve videolar' sekmesine gidip fotoları veya videoları inceleyebilirsin. Her yılın bir önceki yılından daha mutlu olması dileğiyle...",
     mediaSrc: "assets/images/surprise.jpeg",
     mediaType: "image"
 };
