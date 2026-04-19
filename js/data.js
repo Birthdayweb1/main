@@ -23,7 +23,7 @@ const timelineMemories = [
         type: "image",
         src: "assets/images/SurprizZeynep.jpeg",
         date: "02.05.2022",
-        note: "LDGFJKGDFJJGKDFGFDLLKDGFJGFDJKGFDLGFSFSJKDFJDLSDSAJKDLSKJDASKDJS",
+        note: "LDGFJKGDFJJGKDFGFDLLKDGFJGFDJKGFDLGFSFSJKDFJDLSDS",
         duration: 10000 
     }
 ];
