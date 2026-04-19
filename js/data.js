@@ -4,7 +4,10 @@
 const introVideos = [
     { src: "assets/videos/Seyma.mp4", },
     { src: "assets/videos/2.mp4" },
-    { src: "assets/videos/EREN.mp4"}
+    { src: "assets/videos/EREN.mp4"},
+    { src: "assets/videos/SEMIH.mp4"},
+    { src: "assets/videos/EZGI.mp4"},
+    { src: "assets/videos/EFE.mp4"}
 ];
 
 // 2. ZAMAN TÜNELİ (Sadece seçilmiş özel anlar - Highlights)
@@ -17,19 +20,19 @@ const timelineMemories = [
         duration: 10000 
     },
     {
-        type: "video",
-        src: "assets/videos/1.mp4",
-        date: "15.08.2021",
-        note: "Unutulmaz an!",
-        duration: null 
+        type: "image",
+        src: "assets/images/SurprizZeynep.jpeg",
+        date: "ALLAH BİLİR",
+        note: "LDGFJKGDFJJGKDFGFDL",
+        duration: 10000 
     }
 ];
 
 // 3. GALERİ (Burada HER ŞEY olacak - Zaman tünelindekiler + Ekstralar)
 const fullGallery = [
-    "assets/images/1.jpeg", // Zaman tünelinden
-    "assets/images/3.jpeg", // Ekstra
-    "assets/images/4.jpeg", // Sadece galeride görünen
+    "assets/images/1.jpeg", 
+    "assets/images/3.jpeg", 
+    "assets/images/4.jpeg", 
     "assets/images/5.jpeg",
     "assets/images/6.jpeg",
     "assets/images/7.jpeg",
@@ -152,12 +155,15 @@ const fullGallery = [
     "assets/videos/22.mp4",
     "assets/videos/23.mp4",
     "assets/videos/Seyma.mp4",
-    "assets/videos/EREN.mp4"
+    "assets/videos/EREN.mp4",
+    "assets/videos/EFE.mp4",
+    "assets/videos/EZGI.mp4",
+    "assets/videos/SEMIH.mp4"
 ];
 
 // 4. SÜRPRİZ MESAJI
 const surpriseContent = {
-    message: "İyi ki varsın iyi ki doğmuşsun. Nice mutlu beraber senelere. Bu projem internet yok olana kadar açık kalacak. Yani dijital ayak izin hep olacak. Şimdi galeri sekmesine gidip fotoları veya videoları inceleyebilirsin. Her yılın bir önceki yılından daha mutlu olması dileğiyle...",
+    message: "İyi ki varsın iyi ki doğmuşsun. Nice mutlu beraber senelere. Bu internet yok olana kadar açık kalacak. Yani dijital ayak izin hep olacak. Şimdi fotoğraflar sekmesine gidip fotoları veya videoları inceleyebilirsin. Her yılın bir önceki yılından daha mutlu olması dileğiyle...",
     mediaSrc: "assets/images/surprise.jpeg",
     mediaType: "image"
 };
