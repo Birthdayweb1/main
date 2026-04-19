@@ -49,6 +49,9 @@ p {
     font-size: 1.2rem;
     max-width: 600px;
     margin-top: 10px;
+    margin-left: auto;  /* Sağdan ve soldan ortalar */
+    margin-right: auto; /* Sağdan ve soldan ortalar */
+    text-align: center; /* Metni kendi içinde ortalar */
     line-height: 1.5;
 }
 
@@ -109,6 +112,10 @@ p {
 /* 📱 MOBİL İÇİN KESİN ÇÖZÜM */
 /* ========================================= */
 
+/* ========================================= */
+/* 📱 MOBİL İÇİN KESİN ÇÖZÜM */
+/* ========================================= */
+
 @media screen and (max-width: 768px) {
 
     /* --- 1. MÜZİK PLAYER (KOMPAKT & KİBAR) --- */
@@ -120,14 +127,11 @@ p {
         right: 10px !important;
         width: auto !important; 
         transform: none !important; 
-
         padding: 8px 15px !important; 
         height: 50px !important; 
-        
         background: rgba(255, 255, 255, 0.95) !important;
         border-radius: 25px !important; 
         box-shadow: 0 5px 15px rgba(0,0,0,0.2) !important;
-        
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
@@ -163,44 +167,43 @@ p {
         width: 100% !important;
         height: 100% !important; 
         object-fit: contain !important; 
-        pointer-events: auto !important; /* Mobilde dokunmayı açar */
+        pointer-events: auto !important;
     }
     
-    /* --- 3. GEÇ BUTONU MOBİL AYARI (DEĞİŞEN KISIM) --- */
-    /* Mobilde butonu ALTTAN alıp YUKARI (top) taşıyoruz */
+    /* --- 3. GEÇ BUTONU MOBİL AYARI --- */
     #skip-btn {
-        bottom: auto !important; /* Alt ayarını iptal et */
-        top: 30px !important;    /* Sayfanın tepesine yapıştır */
+        bottom: auto !important; 
+        top: 30px !important;    
         right: 20px !important;
-        z-index: 9999 !important; /* Her şeyin üstünde olsun */
+        z-index: 9999 !important; 
         background: rgba(0, 0, 0, 0.6) !important; 
         border: 1px solid rgba(255,255,255,0.4) !important;
     }
+
     /* --- MOBİL İÇİN MÜZİK ÇALAR VE BUTON DÜZELTMESİ --- */
-@media (max-width: 768px) {
     audio {
         display: block !important;
         width: 100% !important;
         max-width: 300px;
-        margin: 20px auto 30px auto !important; /* Müzik çalar ile buton arasına 30px boşluk bırakır */
-        }
+        margin: 20px auto 30px auto !important; 
+    }
     
-    /* Buton class'ının adına göre .btn kısmını düzenleyebilirsin (genelde .btn kullanılır) */
     .btn {
-        display: inline-block !important;
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
         margin-top: 15px !important;
         margin-bottom: 20px !important;
-        }
+        text-align: center !important;
     }
+
     /* --- MOBİLDE SAYFANIN ÜST KISMININ KESİLMESİNİ ÖNLEYEN KOD --- */
-@media (max-width: 768px) {
     body, html, .hero, .container {
         height: auto !important;
         min-height: 100vh !important;
-        justify-content: flex-start !important; /* Öğeleri ekranın üstünden başlayarak sıralar */
-        padding-top: 40px !important; /* Üstten biraz nefes boşluğu bırakır */
+        justify-content: flex-start !important; 
+        padding-top: 40px !important; 
         padding-bottom: 40px !important;
         box-sizing: border-box !important;
-        }
     }
-}
+} /* Mobil medya sorgusunun tek ve doğru kapanış parantezi */
