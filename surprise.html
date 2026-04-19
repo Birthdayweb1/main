@@ -30,15 +30,26 @@
     <script src="js/data.js"></script>
     <script>
         function openGift() {
+            // Önce veriyi tanımlıyoruz (Bu bloğu yukarı taşıdık)
+            const surpriseContent = {
+                message: "İyi ki varsın iyi ki doğmuşsun. Nice mutlu beraber senelere...",
+                mediaSrc: "assets/images/surprise.jpeg",
+                mediaType: "image"
+            };
+
             document.getElementById('gift-box').style.display = 'none';
             document.getElementById('instruction').style.display = 'none';
             document.getElementById('surprise-container').style.display = 'block';
             
+            // Şimdi veriyi kullanabiliriz
             document.getElementById('final-message').innerText = surpriseContent.message;
             const slot = document.getElementById('media-slot');
             
-            if(surpriseContent.mediaType === 'image') slot.innerHTML = `<img id="surprise-media" src="${surpriseContent.mediaSrc}">`;
-            else slot.innerHTML = `<video id="surprise-media" src="${surpriseContent.mediaSrc}" controls autoplay></video>`;
+            if(surpriseContent.mediaType === 'image') {
+                slot.innerHTML = `<img id="surprise-media" src="${surpriseContent.mediaSrc}">`;
+            } else {
+                slot.innerHTML = `<video id="surprise-media" src="${surpriseContent.mediaSrc}" controls autoplay></video>`;
+            }
             
             launchConfetti();
         }
