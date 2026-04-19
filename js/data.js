@@ -23,7 +23,7 @@ const timelineMemories = [
         type: "image",
         src: "assets/images/SurprizZeynep.jpeg",
         date: "02.05.2022",
-        note: "LDGFJKGDFJJGKDFGFDLLKDGFJGFDJKGFDLGFSFSJKDFJDLSDS",
+        note: "LDGFJKGDFJJGKDFGFDLLKDGFJGFDJKGFS",
         duration: 10000 
     }
 ];
@@ -164,7 +164,7 @@ const fullGallery = [
 
 // 4. SÜRPRİZ MESAJI
 const surpriseContent = {
-    message: "İyi ki varsın iyi ki doğmuşsun. Nice mutlu beraber senelere. Bu internet yok olana kadar açık kalacak. Yani dijital ayak izin hep olacak. Şimdi 'fotoğraflar ve videolar' sekmesine gidip fotoları veya videoları inceleyebilirsin. Her yılın bir önceki yılından daha mutlu olması dileğiyle...",
+    message: "İyi ki varsın iyi ki doğmuşsun. Nice mutlu beraber senelere. Bu site internet yok olana kadar açık kalacak. Yani dijital ayak izin hep olacak. Şimdi 'fotoğraflar ve videolar' sekmesine gidip fotoları veya videoları inceleyebilirsin. Her yılın bir önceki yılından daha mutlu olması dileğiyle...",
     mediaSrc: "assets/images/surprise.jpeg",
     mediaType: "image"
 };
