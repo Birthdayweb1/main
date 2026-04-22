@@ -2,7 +2,9 @@
 
 // 1. GİRİŞ VİDEOLARI (Parti başlayınca ilk bunlar oynar)
 const introVideos = [
-    { src: "assets/videos/Seyma.mp4", },
+    { src: "assets/videos/ENDER.mp4"},
+    { src: "assets/videos/BEN.mp4"},
+    { src: "assets/videos/Seyma.mp4"},
     { src: "assets/videos/EREN.mp4"},
     { src: "assets/videos/SEMIH.mp4"},
     { src: "assets/videos/EZGI.mp4"},
@@ -23,13 +25,20 @@ const timelineMemories = [
         type: "image",
         src: "assets/images/SurprizZeynep.jpeg",
         date: "02.05.2022",
-        note: "LDGFJKGDFJJGKDFGFDLLKDGFJGFDJ",
+        note: "LDGFJKGDFJJGKDFGFDLLKDGFJGFD",
         duration: 10000 
     }
 ];
 
 // 3. GALERİ (Burada HER ŞEY olacak - Zaman tünelindekiler + Ekstralar)
 const fullGallery = [
+    "assets/images/EZ1.jpeg",
+    "assets/images/EZ2.jpeg",
+    "assets/images/EZ3.jpeg",
+    "assets/images/EZ4.jpeg",
+    "assets/images/EZ5.jpeg",
+    "assets/images/EZ6.jpeg",
+    "assets/images/EZ7.jpeg",
     "assets/images/1.jpeg", 
     "assets/images/3.jpeg", 
     "assets/images/4.jpeg", 
@@ -159,7 +168,9 @@ const fullGallery = [
     "assets/videos/EFE.mp4",
     "assets/videos/EZGI.mp4",
     "assets/videos/SEMIH.mp4",
-    "assets/videos/BATUK.mp4"
+    "assets/videos/BATUK.mp4",
+    "assets/videos/ENDER.mp4",
+    "assets/videos/BEN.mp4"
 ];
 
 // 4. SÜRPRİZ MESAJI
