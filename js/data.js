@@ -3,9 +3,7 @@
 // 1. GİRİŞ VİDEOLARI (Parti başlayınca ilk bunlar oynar)
 const introVideos = [
     { src: "assets/videos/BEN.mp4"},
-    { src: "assets/videos/ENDER.mp4"},
     { src: "assets/videos/Seyma.mp4"},
-    { src: "assets/videos/EREN.mp4"},
     { src: "assets/videos/SEMIH.mp4"},
     { src: "assets/videos/EZGI.mp4"},
     { src: "assets/videos/EFE.mp4"},
@@ -164,12 +162,10 @@ const fullGallery = [
     "assets/videos/22.mp4",
     "assets/videos/23.mp4",
     "assets/videos/Seyma.mp4",
-    "assets/videos/EREN.mp4",
     "assets/videos/EFE.mp4",
     "assets/videos/EZGI.mp4",
     "assets/videos/SEMIH.mp4",
     "assets/videos/BATUK.mp4",
-    "assets/videos/ENDER.mp4",
     "assets/videos/BEN.mp4"
 ];
 
