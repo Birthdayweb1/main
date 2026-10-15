@@ -30,13 +30,6 @@ const timelineMemories = [
 
 // 3. GALERİ (Burada HER ŞEY olacak - Zaman tünelindekiler + Ekstralar)
 const fullGallery = [
-    "assets/images/EZ1.jpeg",
-    "assets/images/EZ2.jpeg",
-    "assets/images/EZ3.jpeg",
-    "assets/images/EZ4.jpeg",
-    "assets/images/EZ5.jpeg",
-    "assets/images/EZ6.jpeg",
-    "assets/images/EZ7.jpeg",
     "assets/images/1.jpeg", 
     "assets/images/3.jpeg", 
     "assets/images/4.jpeg", 
